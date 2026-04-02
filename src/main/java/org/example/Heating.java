@@ -20,4 +20,12 @@ public class Heating implements ConnectedDevice{
             System.out.println("Chauffage éteint !");
         }
     }
+
+    public void setLowEnergyMode(boolean enabled) {
+        this.lowEnergyMode = enabled;
+        this.temperatureValue = enabled ? 12 : 20;
+        System.out.println(enabled
+                ? "Chauffage hors-gel (12°C)"
+                : "Chauffage mode normal (20°C)");
+    }
 }
