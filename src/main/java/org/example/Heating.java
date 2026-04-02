@@ -11,6 +11,10 @@ public class Heating implements ConnectedDevice{
     private boolean isOn;
 
     public void setStatus(){
-
+        if (isOn){
+            System.out.println("The heating is on");
+        } else {
+            System.out.println("The heating is off");
+        }
     }
 }

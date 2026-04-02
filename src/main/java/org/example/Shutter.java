@@ -10,6 +10,10 @@ public class Shutter implements ConnectedDevice{
     private boolean isOpenShutter;
 
     public void setStatus(){
-
+        if (isOpenShutter){
+            System.out.println("The shutter is open");
+        } else {
+            System.out.println("The shutter is closed");
+        }
     }
 }

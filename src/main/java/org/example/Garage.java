@@ -9,7 +9,11 @@ public class Garage implements ConnectedDevice{
     private boolean isGarageOpen;
 
     public void setStatus(){
-
+        if (isGarageOpen){
+            System.out.println("The garage is open");
+        } else {
+            System.out.println("The garage is closed");
+        }
     }
 
 

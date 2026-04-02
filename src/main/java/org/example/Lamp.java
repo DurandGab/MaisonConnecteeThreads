@@ -12,6 +12,10 @@ public class Lamp implements ConnectedDevice{
     private String color;
 
     public void setStatus(){
-
+        if(isOn){
+            System.out.println("The lamp is on");
+        } else {
+            System.out.println("The lamp is off");
+        }
     }
 }
