@@ -3,8 +3,8 @@ package org.example;
 public class ShutterCreator extends ConnectedDeviceCreator
 {
     @Override
-    public ConnectedDevice createConnectedDevice()
+    public ConnectedDevice createConnectedDevice(String shutterName)
     {
-        return new Shutter();
+        return new Shutter(shutterName);
     }
 }

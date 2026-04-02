@@ -9,6 +9,11 @@ public class Shutter implements ConnectedDevice{
     private int openingPercentage;
     private boolean isOpenShutter;
 
+    public Shutter(String shutterName)
+    {
+        this.deviceName = shutterName;
+    }
+
     public void setStatus(boolean status){
         if (status){
             this.isOpenShutter = true;

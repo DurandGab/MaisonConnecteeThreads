@@ -3,8 +3,8 @@ package org.example;
 public class HeatingCreator extends ConnectedDeviceCreator
 {
     @Override
-    public ConnectedDevice createConnectedDevice()
+    public ConnectedDevice createConnectedDevice(String deviceName)
     {
-        return new Heating();
+        return new Heating(deviceName);
     }
 }
