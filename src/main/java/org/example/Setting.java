@@ -1,9 +1,9 @@
 package org.example;
 
-public class Setting implements ConnectedDevice{
+public class Setting {
     private String typeSetting;
 
-    public void setTypeHeating(){
-
+    public void setTypeHeating(String typeHeating) {
+        this.typeSetting = typeHeating;
     }
 }

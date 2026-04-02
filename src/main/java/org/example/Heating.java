@@ -10,11 +10,14 @@ public class Heating implements ConnectedDevice{
     private String thermostat;
     private boolean isOn;
 
-    public void setStatus(){
-        if (isOn){
-            System.out.println("The heating is on");
+    public void setStatus(boolean status){
+        if(status)
+        {
+            this.isOn = true;
+            System.out.println("Chauffage allumé !");
         } else {
-            System.out.println("The heating is off");
+            this.isOn = false;
+            System.out.println("Chauffage éteint !");
         }
     }
 }
