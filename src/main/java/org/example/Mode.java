@@ -1,6 +1,7 @@
 package org.example;
 
 import java.util.Date;
+import java.util.List;
 
 public class Mode implements Runnable
 {
@@ -10,46 +11,46 @@ public class Mode implements Runnable
     private Date dayEnd;
     private boolean stateMode;
 
-    private ConnectedDevice shutter;
+    private List<ConnectedDevice> shutters;
+    private List<ConnectedDevice> heatings;
+    private List<ConnectedDevice> lamps;
     private ConnectedDevice garage;
-    private ConnectedDevice heating;
-    private ConnectedDevice lamp;
 
-    public Mode(String modeName, ConnectedDevice shutter, ConnectedDevice garage, ConnectedDevice heating, ConnectedDevice lamp)
-    {
+    public Mode(String modeName, List<ConnectedDevice> shutters,
+                List<ConnectedDevice> heatings, List<ConnectedDevice> lamps,
+                ConnectedDevice garage) {
         this.modeName = modeName;
-        this.shutter = shutter;
-        this.garage = garage;
-        this.heating = heating;
-        this.lamp = lamp;
+        this.shutters = shutters;
+        this.heatings = heatings;
+        this.lamps    = lamps;
+        this.garage   = garage;
     }
+
+    // turn on a mode
     public void turnOn()
     {
         this.stateMode = true;
-        System.out.println("Mode " + this.modeName + " activé !");
+        System.out.println("Mode " + this.modeName + " activated !");
         new Thread(this, "ModeThread").start();
 
     }
 
+    //turn off a mode
     public void turnOff()
     {
         this.stateMode = false;
-        System.out.println("Mode " + this.modeName + " désactivé !");
+        System.out.println("Mode " + this.modeName + " disabled !");
     }
 
+    // run method to execute the mode in a separate thread
     @Override
     public void run() {
-        Thread t1 = new Thread(() -> shutter.setStatus(false), "ShutterThread");
-        Thread t2 = new Thread(() -> garage.setStatus(false),  "GarageThread");
-        Thread t3 = new Thread(() -> lamp.setStatus(false),    "LampThread");
-        Thread t4 = new Thread(() -> ((Heating) heating).setLowEnergyMode(true), "HeatingThread");
+        System.out.println("[" + modeName + "]" + " Security in progress...");
 
-        t1.start();
-        t2.start();
-        t3.start();
-        t4.start();
-
-        System.out.println("[Mode vacances] Domicile sécurisé !");
+        shutters.forEach(s -> new Thread(() -> s.setStatus(false)).start());
+        lamps.forEach(l -> new Thread(() -> l.setStatus(false)).start());
+        new Thread(() -> garage.setStatus(false)).start();
+        heatings.forEach(h -> new Thread(() -> ((Heating) h).setLowEnergyMode(true)).start());
     }
 }
 

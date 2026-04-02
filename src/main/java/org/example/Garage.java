@@ -17,10 +17,10 @@ public class Garage implements ConnectedDevice{
     public void setStatus(boolean status){
         if (status){
             this.isGarageOpen = true;
-            System.out.println("The garage is open");
+            System.out.println(deviceName + " is open");
         } else {
             this.isGarageOpen = false;
-            System.out.println("The garage is closed");
+            System.out.println(deviceName + " is closed");
         }
     }
 

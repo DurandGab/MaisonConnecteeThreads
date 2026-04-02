@@ -19,10 +19,10 @@ public class Heating implements ConnectedDevice{
         if(status)
         {
             this.isOn = true;
-            System.out.println("Chauffage allumé !");
+            System.out.println(deviceName + " is on !");
         } else {
             this.isOn = false;
-            System.out.println("Chauffage éteint !");
+            System.out.println(deviceName + " is off");
         }
     }
 
@@ -30,7 +30,7 @@ public class Heating implements ConnectedDevice{
         this.lowEnergyMode = enabled;
         this.temperatureValue = enabled ? 12 : 20;
         System.out.println(enabled
-                ? "Chauffage hors-gel (12°C)"
-                : "Chauffage mode normal (20°C)");
+                ? deviceName + " : " + "Heating frost protection (12°C)"
+                : deviceName + " : " + "Heating normal mode (20°C)");
     }
 }

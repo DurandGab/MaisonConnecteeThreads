@@ -1,8 +1,11 @@
 package org.example;
 
+import java.util.List;
+
 public class Main
 {
     public static void main(String[] args) {
+
         // Rooms
         Room bedroom = new Room("Bedroom");
         Room kitchen = new Room("Kitchen");
@@ -61,13 +64,20 @@ public class Main
         // Garage connected device
         garagePlace.getRoomDevices().add(garage);
 
-        // Code Gabin
-        ConnectedDevice shutter = new ShutterCreator().createConnectedDevice();
-        ConnectedDevice garage = new GarageCreator().createConnectedDevice();
-        ConnectedDevice heating = new HeatingCreator().createConnectedDevice();
-        ConnectedDevice lamp = new LampCreator().createConnectedDevice();
+        // Lists of devices for the mode
+        List<ConnectedDevice> shutters = List.of(shuttersBedroom, shuttersKitchen, shuttersBathroom);
+        List<ConnectedDevice> heatings = List.of(bedroomHeating, kitchenHeating, bathroomHeating);
+        List<ConnectedDevice> lamps    = List.of(bedroomLampBed, bedroomLampCeiling, bedroomLampDesk,
+                kitchenLampCeiling, kitchenLampSink, kitchenLampTable,
+                bathroomLampSink, bathroomLampShower, bathroomLampSpots);
 
-        Mode mode = new Mode("Vacances", shutter, garage, heating, lamp);
-        mode.turnOn();
+        //simulation of a collision on the shutters of the bedroom
+        CollisionThread collision = new CollisionThread(shuttersBedroom);
+        Thread collisionThread = new Thread(collision, "CollisionThread");
+
+        // Summer mode
+        Mode vacances = new Mode("Vacances", shutters, heatings, lamps, garage);
+        collisionThread.start();
+        vacances.turnOn();
     }
 }

@@ -14,13 +14,13 @@ public class Shutter implements ConnectedDevice{
         this.deviceName = shutterName;
     }
 
-    public void setStatus(boolean status){
+    public synchronized void setStatus(boolean status){
         if (status){
             this.isOpenShutter = true;
-            System.out.println("The shutter is open");
+            System.out.println(deviceName + " are open");
         } else {
             this.isOpenShutter = false;
-            System.out.println("The shutter is closed");
+            System.out.println(deviceName + " are closed");
         }
     }
 }
