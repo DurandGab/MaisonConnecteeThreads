@@ -52,14 +52,14 @@ public class Main
         kitchen.getRoomDevices().add(kitchenHeating);
         kitchen.getRoomDevices().add(shuttersKitchen);
 
-        // Bathroom
+        // Bathroom connected devices
         bathroom.getRoomDevices().add(bathroomLampSpots);
         bathroom.getRoomDevices().add(bathroomLampSink);
         bathroom.getRoomDevices().add(bathroomLampShower);
         bathroom.getRoomDevices().add(bathroomHeating);
         bathroom.getRoomDevices().add(shuttersBathroom);
 
-        // Garage
+        // Garage connected device
         garagePlace.getRoomDevices().add(garage);
     }
 }
