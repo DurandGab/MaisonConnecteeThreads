@@ -8,6 +8,11 @@ public class Garage implements ConnectedDevice{
     private boolean lowEnergyMode;
     private boolean isGarageOpen;
 
+    public Garage(String garageName)
+    {
+        this.deviceName = garageName;
+    }
+
     @Override
     public void setStatus(boolean status){
         if (status){

@@ -10,6 +10,11 @@ public class Heating implements ConnectedDevice{
     private String thermostat;
     private boolean isOn;
 
+    public Heating(String heatingName)
+    {
+        this.deviceName = heatingName;
+    }
+
     public void setStatus(boolean status){
         if(status)
         {
