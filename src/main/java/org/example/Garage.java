@@ -8,6 +8,7 @@ public class Garage implements ConnectedDevice{
     private boolean lowEnergyMode;
     private boolean isGarageOpen;
 
+    @Override
     public void setStatus(boolean status){
         if (status){
             this.isGarageOpen = true;
@@ -17,6 +18,5 @@ public class Garage implements ConnectedDevice{
             System.out.println("The garage is closed");
         }
     }
-
 
 }

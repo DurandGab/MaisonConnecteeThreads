@@ -2,5 +2,5 @@ package org.example;
 
 public interface ConnectedDevice
 {
-    void setStatus();
+    void setStatus(boolean status);
 }

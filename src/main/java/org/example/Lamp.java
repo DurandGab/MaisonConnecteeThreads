@@ -11,16 +11,16 @@ public class Lamp implements ConnectedDevice{
     private int brightness;
     private String color;
 
-    public Lamp(int idLamp, String deviceName, boolean isConnectionActivated, String energyConsuption, boolean lowEnergyMode, int temperature, int brightness, String color) {
-        this.idLamp = idLamp;
-        this.deviceName = deviceName;
-        this.isConnectionActivated = isConnectionActivated;
-        this.energyConsuption = energyConsuption;
-        this.lowEnergyMode = lowEnergyMode;
-        this.temperature = temperature;
-        this.brightness = brightness;
-        this.color = color;
-    }
+//    public Lamp(int idLamp, String deviceName, boolean isConnectionActivated, String energyConsuption, boolean lowEnergyMode, int temperature, int brightness, String color) {
+//        this.idLamp = idLamp;
+//        this.deviceName = deviceName;
+//        this.isConnectionActivated = isConnectionActivated;
+//        this.energyConsuption = energyConsuption;
+//        this.lowEnergyMode = lowEnergyMode;
+//        this.temperature = temperature;
+//        this.brightness = brightness;
+//        this.color = color;
+//    }
 
     public void setStatus(boolean status){
         if(status){

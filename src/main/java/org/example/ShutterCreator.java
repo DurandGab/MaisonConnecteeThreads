@@ -1,6 +1,6 @@
 package org.example;
 
-public class ShutterCreator
+public class ShutterCreator extends ConnectedDeviceCreator
 {
     @Override
     public ConnectedDevice createConnectedDevice()

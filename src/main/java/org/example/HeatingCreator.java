@@ -1,6 +1,6 @@
 package org.example;
 
-public class HeatingCreator
+public class HeatingCreator extends ConnectedDeviceCreator
 {
     @Override
     public ConnectedDevice createConnectedDevice()
