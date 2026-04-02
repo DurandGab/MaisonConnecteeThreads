@@ -2,8 +2,7 @@ package org.example;
 
 public class Main
 {
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) {
         // Rooms
         Room bedroom = new Room("Bedroom");
         Room kitchen = new Room("Kitchen");
@@ -64,10 +63,11 @@ public class Main
 
         // Code Gabin
         ConnectedDevice shutter = new ShutterCreator().createConnectedDevice();
-        ConnectedDevice garage  = new GarageCreator().createConnectedDevice();
+        ConnectedDevice garage = new GarageCreator().createConnectedDevice();
         ConnectedDevice heating = new HeatingCreator().createConnectedDevice();
-        ConnectedDevice lamp    = new LampCreator().createConnectedDevice();
+        ConnectedDevice lamp = new LampCreator().createConnectedDevice();
 
-        Mode mode = new Mode("Vacances",shutter, garage, heating, lamp);
+        Mode mode = new Mode("Vacances", shutter, garage, heating, lamp);
         mode.turnOn();
+    }
 }
